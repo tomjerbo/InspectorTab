@@ -16,7 +16,22 @@ namespace Jerbo.Inspector {
             Purple,
             Pink,
         }
-
+        
+        public Tab(string title, Color color) {
+            this.title = title;
+            this.color = color switch {
+                Color.White => new Color32(255, 255, 255, 255),
+                Color.Yellow => new Color32(253, 203, 110, 255),
+                Color.Green => new Color32(0, 184, 148, 255),
+                Color.Blue => new Color32(9, 132, 227, 255),
+                Color.Grey => new Color32(178, 189, 195, 255),
+                Color.Red => new Color32(225, 112, 85, 255),
+                Color.Purple => new Color32(162, 155, 254, 255),
+                Color.Pink => new Color32(253, 121, 168, 255),
+                _ => throw new ArgumentOutOfRangeException(nameof(color), color, null)
+            };
+        }
+        
         public Tab(string title) {
             this.title = title;
             color = UnityEngine.Color.white;
@@ -38,21 +53,6 @@ namespace Jerbo.Inspector {
             }
 
             color = c;
-        }
-
-        public Tab(string title, Color color) {
-            this.title = title;
-            this.color = color switch {
-                Color.White => new Color32(255, 255, 255, 255),
-                Color.Yellow => new Color32(253, 203, 110, 255),
-                Color.Green => new Color32(0, 184, 148, 255),
-                Color.Blue => new Color32(9, 132, 227, 255),
-                Color.Grey => new Color32(178, 189, 195, 255),
-                Color.Red => new Color32(225, 112, 85, 255),
-                Color.Purple => new Color32(162, 155, 254, 255),
-                Color.Pink => new Color32(253, 121, 168, 255),
-                _ => throw new ArgumentOutOfRangeException(nameof(color), color, null)
-            };
         }
 
         public Tab(string title, float r, float g, float b, float a = 1) {
