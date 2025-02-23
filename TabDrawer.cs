@@ -30,7 +30,8 @@ namespace Jerbo.Inspector {
 
         public override void OnGUI(Rect rect) {
             Tab tabProperty = (Tab)attribute;
-            
+            if (GUI.enabled == false) GUI.enabled = true;
+
             // Variables
             GUIContent titleContent = new (tabProperty.title);
             float titleWidth = headerStyle.CalcSize(titleContent).x;
